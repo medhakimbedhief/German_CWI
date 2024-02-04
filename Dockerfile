@@ -11,8 +11,10 @@ RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 COPY webapp/* /webapp
-
+  
 LABEL authors="medha"
+
+EXPOSE 8000
 
 ENTRYPOINT ["uvicorn"]
 
