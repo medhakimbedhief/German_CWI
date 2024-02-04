@@ -29,7 +29,8 @@ name: CD
 #env:
 #  AZURE_WEBAPP_NAME:  demo-container  # set this to the name of your Azure Web App
 #  AZURE_CONTAINER_APP_NAME: demo-container
-#  AZURE_GROUP_NAME: demo-container
+#  AZURE_GROUP_NAME: demo
+
 on:
   # Automatically trigger it when detected changes in repo. Remove comments to enable
   #push:
