@@ -57,7 +57,7 @@ jobs:
       - name: Log in to GitHub container registry
         uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
         with:
-          registry: demohakim.azurecr.io
+          registry: demohakim1.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
@@ -68,7 +68,7 @@ jobs:
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
         with:
           push: true
-          tags: demohakim.azurecr.io/${{ env.REPO }}:${{ github.sha }}
+          tags: demohakim1.azurecr.io/${{ env.REPO }}:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
@@ -87,6 +87,6 @@ jobs:
         with:
           inlineScript: |
             az config set extension.use_dynamic_install=yes_without_prompt
-            az containerapp registry set -n demo-container -g demo --server demohakim.azurecr.io --username ${{ secrets.ACR_USERNAME }} --password ${{ secrets.ACR_PASSWORD }}
+            az containerapp registry set -n demo-container -g demo --server demohakim1.azurecr.io --username ${{ secrets.ACR_USERNAME }} --password ${{ secrets.ACR_PASSWORD }}
             az containerapp update -n demo-container -g demo --cpu 2 --memory 4Gi
-            az containerapp update -n demo-container -g demo --image demohakim.azurecr.io/medhakimbedhief/german_cwi:${{ github.sha }}
+            az containerapp update -n demo-container -g demo --image demohakim1.azurecr.io/medhakimbedhief/german_cwi:${{ github.sha }}
